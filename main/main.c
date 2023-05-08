@@ -148,7 +148,10 @@ static esp_err_t WiFi_eventHandler(void *argument, system_event_t *event)
     }
     return ESP_OK;
 }
-
+void deep_slepp(){
+    const int wakeup_time_sec = 20;
+    esp_sleep_enable_timer_wakeup(wakeup_time_sec * 1000000);
+}
 /**
  * @brief This function initialize wifi and create, start WiFi handle such as loop (low priority)
  * 
@@ -591,4 +594,6 @@ void app_main(void)
 #if(CONFIG_USING_WIFI)
     WIFI_initSTA();
 #endif
+    deep_slepp();
+    esp_deep_sleep_start();
 }
