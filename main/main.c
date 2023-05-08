@@ -148,7 +148,6 @@ static esp_err_t WiFi_eventHandler(void *argument, system_event_t *event)
     }
     return ESP_OK;
 }
-
 /**
  * @brief This function initialize wifi and create, start WiFi handle such as loop (low priority)
  * 
